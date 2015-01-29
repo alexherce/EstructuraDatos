@@ -10,10 +10,10 @@
 using namespace std;
 #define N 6
 
-bool path(int horizontal, int vertical, int n, int maze[N][N]);
+bool path(int x, int y, int n, int maze[N][N]);
 
 int main(int argc, const char * argv[]) {
-  
+    
     
     int maze[N][N] = {{0, 0, 0, 0, 0, 0} , {1, 1, 1, 1, 1, 0}, {0, 0, 0, 0, 0, 0}, {0, 1, 1, 1, 1, 1}, {0, 1, 0, 0, 0, 1}, {0, 0, 0, 1, 0, 0}};
     
@@ -53,31 +53,31 @@ int main(int argc, const char * argv[]) {
 }
 
 
-bool path(int horizontal, int vertical, int n, int maze[N][N])
+bool path(int x, int y, int n, int maze[N][N])
 {
-    maze[horizontal][vertical] = 8;
+    maze[x][y] = 8;
     
-    if (horizontal == n-1 && vertical == n-1)
+    if (x == n-1 && y == n-1)
     {
         return true;
     } else {
-        if((horizontal + 1 < n) && (maze[horizontal + 1][vertical]==0))
+        if((x + 1 < n) && (maze[x + 1][y]==0 || maze[x + 1][y] == 8))
         {
-            return path(horizontal + 1, vertical, 6, maze);
+            return path(x + 1, y, 6, maze);
         }
         
-        if((horizontal - 1 > -1) && (maze[horizontal - 1][vertical]==0))
+        if((x - 1 > -1) && (maze[x - 1][y]==0 || maze[x - 1][y] == 8))
         {
-           return path(horizontal - 1, vertical, 6, maze);
+            return path(x - 1, y, 6, maze);
         }
-        if((vertical + 1 < n) && (maze[horizontal][vertical + 1]==0))
+        if((y + 1 < n) && (maze[x][y + 1]==0 || maze[x][y + 1] == 8))
         {
-            return path(horizontal, vertical + 1, 6, maze);
+            return path(x, y + 1, 6, maze);
         }
-        if((vertical - 1 > -1) && (maze[horizontal][vertical - 1]==0))
+        if((y - 1 > -1) && (maze[x][y - 1]==0 || maze[x][y - 1] == 8))
         {
-            return path(horizontal, vertical - 1, 6, maze);
+            return path(x, y - 1, 6, maze);
         }
-     return false;
+        return false;
     }
 }
