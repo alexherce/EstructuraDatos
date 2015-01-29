@@ -61,21 +61,20 @@ bool path(int x, int y, int n, int maze[N][N])
     {
         return true;
     } else {
-        // Problemas con la condicion OR adentro de la otra condicion AND
-        if((x + 1 < n) && (maze[x + 1][y]==0 || maze[x + 1][y] == 8))
+        if((x + 1 < n) && (maze[x + 1][y]==0))
         {
             return path(x + 1, y, 6, maze);
         }
         
-        if((x - 1 > -1) && (maze[x - 1][y]==0 || maze[x - 1][y] == 8))
+        if((x - 1 > -1) && (maze[x - 1][y]==0))
         {
             return path(x - 1, y, 6, maze);
         }
-        if((y + 1 < n) && (maze[x][y + 1]==0 || maze[x][y + 1] == 8))
+        if((y + 1 < n) && (maze[x][y + 1]==0))
         {
             return path(x, y + 1, 6, maze);
         }
-        if((y - 1 > -1) && (maze[x][y - 1]==0 || maze[x][y - 1] == 8))
+        if((y - 1 > -1) && (maze[x][y - 1]==0))
         {
             return path(x, y - 1, 6, maze);
         }
