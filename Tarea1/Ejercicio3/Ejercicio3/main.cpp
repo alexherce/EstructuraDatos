@@ -46,5 +46,6 @@ int robot(int x, int y, int m, int n)
     } else {
         return 1;
     }
+    
     return cont;
 }
