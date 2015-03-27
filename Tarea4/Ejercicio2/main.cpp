@@ -45,11 +45,31 @@ int main()
         }
     }
 
+    cout << endl << endl << "ENVIO DE MENSAJE: " << endl;
+
     for(int i = 0; i < cantComp; i++)
     {
         cout << "Computadora #" << i << ": " << tokenring->at(i)->getInfo() << endl;
     }
 
+    while (tokenring->at(compFuente)->getInfo() != "Mensaje recibido.")
+    {
+        if(contador > cantComp)
+        {
+            contador = 0;
+            editNode(contador, "Mensaje recibido.");
+        } else {
+            editNode(contador, "Mensaje recibido.");
+            contador++;
+        }
+    }
+
+    cout << endl << endl << "CONFIRMACION: " << endl;
+
+    for(int i = 0; i < cantComp; i++)
+    {
+        cout << "Computadora #" << i << ": " << tokenring->at(i)->getInfo() << endl;
+    }
 
     return 0;
 }
