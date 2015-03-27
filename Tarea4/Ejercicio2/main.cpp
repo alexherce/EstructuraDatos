@@ -7,6 +7,11 @@ CircularLinkedList<string> * tokenring = new CircularLinkedList<string>();
 
 void editNode (int, string);
 
+
+// ¿COMO SE PUEDE RECORRER UNA LISTA CIRCULAR SIN DEPENDER DE UN CONTADOR????
+
+
+
 int main()
 {
 
