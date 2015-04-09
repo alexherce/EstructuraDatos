@@ -35,6 +35,9 @@ int main(int argc, const char * argv[]) {
     cout << listR << endl;
     
     
+    listL.clear();
+    listR.clear();
+    
     return 0;
 }
 
