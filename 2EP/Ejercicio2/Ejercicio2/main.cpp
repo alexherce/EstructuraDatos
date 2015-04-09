@@ -58,8 +58,11 @@ void listaRepetida()
             {
                 if (contVar == 1)
                 {
+                    if(listR.search(temp1) == false)
+                    {
                     listR.insertBack(temp1);
                     contVar++;
+                    }
                 }
                 contVar++;
             }
