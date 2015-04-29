@@ -21,7 +21,7 @@ void funcionUnion();
 void funcionNmenosM();
 void funcionMmenosN();
 void funcionMultiplicacion();
-void funcionInterseccion(LinkedList<int>, LinkedList<int>);
+void funcionInterseccion();
 
 
 int main(int argc, const char * argv[]) {
@@ -84,22 +84,28 @@ int main(int argc, const char * argv[]) {
         }
     }
 
+    int temp;
     for (int i = posInicio1; i < posFinal1 + 1; i++)
     {
-        int temp =  lista.at(i)->getInfo() - '0';
+        temp =  lista.at(i)->getInfo() - '0';
         cola1.insertBack(temp);
     }
     
     for (int i = posInicio2; i < posFinal2 + 1; i++)
     {
-        int temp =  lista.at(i)->getInfo() - '0';
+        temp =  lista.at(i)->getInfo() - '0';
         cola2.insertBack(temp);
     }
     
     
-    funcionInterseccion(cola1, cola2);
+    funcionInterseccion();
+    
+    
+    cout << cola1 << endl;
+    cout << cola2 << endl;
     
     cout << sol << endl;
+    
     
     lista.clear();
     
@@ -107,19 +113,18 @@ int main(int argc, const char * argv[]) {
     return 0;
 }
 
-void funcionInterseccion(LinkedList<int> a, LinkedList<int> b)
+void funcionInterseccion()
 {
-    for (int i = 0; i < a.size(); ++i)
+    for (int i = 0; i < cola1.size(); ++i)
     {
-        for (int j = 0; j < b.size(); ++j)
+        for (int j = 0; j < cola2.size(); ++j)
         {
-            if (a.at(i)->getInfo() == b.at(j)->getInfo())
+            if (cola1.at(i)->getInfo() == cola2.at(j)->getInfo())
             {
-                sol.insertBack(a.at(i)->getInfo());
+                sol.insertBack(cola1.at(i)->getInfo());
             }
         }
     }
 }
-
 
 
