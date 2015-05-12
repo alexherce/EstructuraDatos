@@ -102,10 +102,29 @@ std::ostream & operator<<(std::ostream & os, const Graph<V, E> & graph)
 template <class V, class E>
 bool Graph<V, E>::completeGraph()
 {
-    
-    
-    
-    
+    bool resultado = false;
+    for (int i = 0; i < nodes.size() - 1; i++)
+    {
+        for (auto node : * nodes[i]->getEdges())
+        {
+            for (int j = i + 1; j < nodes.size(); j++)
+            {
+                for (auto node2 : * nodes[j]->getEdges())
+                {
+                    if (node2 == node) {
+                        resultado = true;
+                    }
+                }
+                if (resultado == false) {
+                    return resultado;
+                }
+                
+            }
+            
+        }
+        
+    }
+    return resultado;
 }
 
 
